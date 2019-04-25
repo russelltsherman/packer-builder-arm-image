@@ -41,6 +41,7 @@ elif [ -e $LOADMOD ] && grep -q "^snd-bcm2835" $LOADMOD; then
   sed -i "s|^snd-bcm2835|#snd-bcm2835|" $LOADMOD &> /dev/null
 fi
 
+echo "writing /etc/asound.conf"
 cat > /etc/asound.conf << 'EOL'
 pcm.speakerbonnet {
   type hw card 0
@@ -81,7 +82,8 @@ pcm.!default {
 }
 EOL
 
-sh -c 'cat > /etc/systemd/system/aplay.service' << 'EOL'
+echo "writing /etc/systemd/system/aplay.service"
+cat > /etc/systemd/system/aplay.service << 'EOL'
 [Unit]
 Description=Invoke aplay from /dev/zero at system start.
 
@@ -92,5 +94,5 @@ ExecStart=/usr/bin/aplay -D default -t raw -r 48000 -c 2 -f S16_LE /dev/zero
 WantedBy=multi-user.target
 EOL
 
-systemctl daemon-reload
+echo "enable aplay.service"
 systemctl enable aplay
