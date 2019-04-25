@@ -9,6 +9,6 @@
   }],
   "provisioners": [{
     "type": "shell",
-    "inline": ["apt-get update && apt-get install -y golang"]
+    "script": "/vagrant/scripts/customize.sh"
   }]
 }
