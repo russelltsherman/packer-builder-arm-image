@@ -17,7 +17,7 @@ sudo tee /etc/cloud/cloud.cfg <<'YAML'
 users:
    - default
 
-# If this is set, 'root' will not be able to ssh in and they 
+# If this is set, 'root' will not be able to ssh in and they
 # will get a message to login instead as the above $user (debian)
 disable_root: true
 
@@ -25,8 +25,8 @@ disable_root: true
 preserve_hostname: false
 
 # Example datasource config
-# datasource: 
-#    Ec2: 
+# datasource:
+#    Ec2:
 #      metadata_urls: [ 'blah.com' ]
 #      timeout: 5 # (defaults to 50 seconds)
 #      max_wait: 10 # (defaults to 120 seconds)

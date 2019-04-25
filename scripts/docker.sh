@@ -23,7 +23,7 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
 ## Update after said changes so we can pull the archive keyring
-apt-get update -qq 
+apt-get update -qq
 apt-get install -qy kubeadm
 
 ## Enable cgroups
