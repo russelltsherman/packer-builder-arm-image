@@ -208,3 +208,11 @@ vagrant up && vagrant ssh
 sudo packer build /vagrant/packer/pi-zero-otg.json
 rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-otg.img
 ```
+
+### create image with support with otg and adafruit speakerbonnet
+
+```sh
+vagrant up && vagrant ssh
+sudo packer build /vagrant/packer/pi-zero-speakerbonnet.json
+rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-speakerbonnet.img
+```
