@@ -9,7 +9,7 @@ import (
 
 	"github.com/hashicorp/packer/packer"
 
-	"github.com/solo-io/packer-builder-arm-image/pkg/image"
+	"github.com/russelltsherman/packer-builder-arm-image/pkg/image"
 )
 
 type copyResult struct {

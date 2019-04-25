@@ -2,7 +2,7 @@
 #
 # @script          provision.sh
 # @description     provisioning script that builds environment for
-#                  https://github.com/solo-io/packer-builder-arm-image
+#                  https://github.com/russelltsherman/packer-builder-arm-image
 #
 #                 By default, sets up environment, builds the plugin, and image
 ##
@@ -10,8 +10,8 @@ set -x
 # Set to false to disable auto building
 
 # Now ready to build the plugin
-mkdir -p $GOPATH/src/github.com/solo-io/
-pushd $GOPATH/src/github.com/solo-io/
+mkdir -p $GOPATH/src/github.com/russelltsherman/
+pushd $GOPATH/src/github.com/russelltsherman/
 # clean up potential residual files from previous builds
 rm -rf packer-builder-arm-image
 if [[ -z "${GIT_CLONE_URL}" ]]; then {

@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/hashicorp/packer/packer"
-	"github.com/solo-io/packer-builder-arm-image/pkg/flasher"
+	"github.com/russelltsherman/packer-builder-arm-image/pkg/flasher"
 )
 
 func main() {

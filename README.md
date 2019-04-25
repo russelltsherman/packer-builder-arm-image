@@ -70,7 +70,7 @@ This project uses [go modules](https://github.com/golang/go/wiki/Modules) for de
 To build:
 
 ```sh
-git clone https://github.com/solo-io/packer-builder-arm-image
+git clone https://github.com/russelltsherman/packer-builder-arm-image
 cd packer-builder-arm-image
 go mod download
 go build
@@ -84,7 +84,7 @@ custom provisions to build an image in an iterative fashion (thanks to @tommie-l
 To use the Vagrant environment, run the following commands:
 
 ```sh
-git clone https://github.com/solo-io/packer-builder-arm-image
+git clone https://github.com/russelltsherman/packer-builder-arm-image
 cd packer-builder-arm-image
 vagrant up
 ```

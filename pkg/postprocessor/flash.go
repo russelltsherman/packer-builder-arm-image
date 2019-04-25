@@ -6,7 +6,7 @@ import (
 	"github.com/hashicorp/packer/helper/config"
 	"github.com/hashicorp/packer/packer"
 	"github.com/hashicorp/packer/template/interpolate"
-	"github.com/solo-io/packer-builder-arm-image/pkg/flasher"
+	"github.com/russelltsherman/packer-builder-arm-image/pkg/flasher"
 )
 
 type FlashConfig = struct {

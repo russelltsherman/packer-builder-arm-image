@@ -1,4 +1,4 @@
-module github.com/solo-io/packer-builder-arm-image
+module github.com/russelltsherman/packer-builder-arm-image
 
 require (
 	github.com/hashicorp/errwrap v0.0.0-20141028054710-7554cd9344ce

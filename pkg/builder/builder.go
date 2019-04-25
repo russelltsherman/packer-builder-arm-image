@@ -14,8 +14,8 @@ import (
 	"github.com/hashicorp/packer/packer"
 	"github.com/hashicorp/packer/template/interpolate"
 
-	"github.com/solo-io/packer-builder-arm-image/pkg/image"
-	"github.com/solo-io/packer-builder-arm-image/pkg/image/utils"
+	"github.com/russelltsherman/packer-builder-arm-image/pkg/image"
+	"github.com/russelltsherman/packer-builder-arm-image/pkg/image/utils"
 )
 
 const BuilderId = "yuval-k.arm-image"
@@ -28,7 +28,7 @@ func init() {
 	knownArgs = make(map[utils.KnownImageType][]string)
 	knownTypes[utils.RaspberryPi] = []string{"/boot", "/"}
 	knownTypes[utils.BeagleBone] = []string{"/"}
-	knownTypes[utils.Kali] = []string{"/root","/"}
+	knownTypes[utils.Kali] = []string{"/root", "/"}
 	knownArgs[utils.BeagleBone] = []string{"-cpu", "cortex-a8"}
 }
 

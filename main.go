@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/hashicorp/packer/packer/plugin"
-	"github.com/solo-io/packer-builder-arm-image/pkg/builder"
-	"github.com/solo-io/packer-builder-arm-image/pkg/postprocessor"
+	"github.com/russelltsherman/packer-builder-arm-image/pkg/builder"
+	"github.com/russelltsherman/packer-builder-arm-image/pkg/postprocessor"
 )
 
 func main() {

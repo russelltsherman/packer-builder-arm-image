@@ -2,7 +2,7 @@
 #
 # @script          provision.sh
 # @description     provisioning script that builds environment for
-#                  https://github.com/solo-io/packer-builder-arm-image
+#                  https://github.com/russelltsherman/packer-builder-arm-image
 #
 #                 By default, sets up environment, builds the plugin, and image
 ##
@@ -28,8 +28,8 @@ if [[ ! -f /home/vagrant/.packer.d/plugins/packer-builder-arm-image ]]; then {
     if [[ -f /vagrant/${PACKERFILE} ]]; then {
         sudo packer build /vagrant/${PACKERFILE} | tee ${PACKER_LOG}
     } else {
-        if [[ -f $GOPATH/src/github.com/solo-io/packer-builder-arm-image/${PACKERFILE} ]]; then {
-            sudo packer build $GOPATH/src/github.com/solo-io/packer-builder-arm-image/${PACKERFILE} | tee ${PACKER_LOG}
+        if [[ -f $GOPATH/src/github.com/russelltsherman/packer-builder-arm-image/${PACKERFILE} ]]; then {
+            sudo packer build $GOPATH/src/github.com/russelltsherman/packer-builder-arm-image/${PACKERFILE} | tee ${PACKER_LOG}
         } else {
             echo "Error: packer build definition ${PACKERFILE} not found."
             exit

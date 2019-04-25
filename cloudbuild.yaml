@@ -3,12 +3,12 @@ steps:
 - name: 'gcr.io/cloud-builders/go'
   args: ['build', "-o", "packer-builder-arm-image"]
   env:
-  - PROJECT_ROOT=github.com/solo-io/packer-builder-arm-image
+  - PROJECT_ROOT=github.com/russelltsherman/packer-builder-arm-image
 
 - name: 'gcr.io/cloud-builders/go'
-  args: ['build', "-o", "cmd/flasher/flasher", "github.com/solo-io/packer-builder-arm-image/cmd/flasher"]
+  args: ['build', "-o", "cmd/flasher/flasher", "github.com/russelltsherman/packer-builder-arm-image/cmd/flasher"]
   env:
-  - PROJECT_ROOT=github.com/solo-io/packer-builder-arm-image
+  - PROJECT_ROOT=github.com/russelltsherman/packer-builder-arm-image
 
 - name: 'gcr.io/$PROJECT_ID/go-make'
   entrypoint: ./hack/upload.sh
