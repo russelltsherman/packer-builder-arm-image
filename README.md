@@ -191,12 +191,20 @@ this example requires you to run the plugin without a VM, as it copies your loca
 }
 ```
 
-### A complete example:
+### A complete example
 
-See everything included in here: [contrib/pi-secure-wifi-ssh.json](contrib/pi-secure-wifi-ssh.json). Build like so:
+See everything included in here: [packer/pi-secure-wifi-ssh.json](packer/pi-secure-wifi-ssh.json). Build like so:
 
 ```sh
-sudo packer build  -var wifi_name=SSID -var wifi_password=PASSWORD contrib/pi-secure-wifi-ssh.json
+sudo packer build  -var wifi_name=SSID -var wifi_password=PASSWORD contpackerrib/pi-secure-wifi-ssh.json
 # or  if running from vagrant ssh:
-sudo packer build  -var wifi_name=SSID -var wifi_password=PASSWORD /vagrant/contrib/pi-secure-wifi-ssh.json
+sudo packer build  -var wifi_name=SSID -var wifi_password=PASSWORD /vagrant/packer/pi-secure-wifi-ssh.json
+```
+
+### create image with support with otg
+
+```sh
+vagrant up && vagrant ssh
+sudo packer build /vagrant/packer/pi-zero-otg.json
+rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-otg.img
 ```
