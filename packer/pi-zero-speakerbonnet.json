@@ -28,12 +28,13 @@
       "script": "/vagrant/scripts/enable-ssh.sh"
     },
     {
-      "type": "shell",
-      "script": "/vagrant/scripts/cloud-init.sh"
+      "type": "file",
+      "source": "{{user `home`}}/.ssh/id_rsa.pub",
+      "destination": "/home/pi/.ssh/authorized_keys"
     },
     {
       "type": "shell",
-      "script": "/vagrant/scripts/authorized_keys.sh"
+      "script": "/vagrant/scripts/cloud-init.sh"
     },
     {
       "type": "shell",
