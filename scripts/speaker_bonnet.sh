@@ -2,34 +2,23 @@
 # shellcheck disable=SC2068
 
 CONFIG=/boot/config.txt
-BLACKLIST=/etc/modprobe.d/raspi-blacklist.conf
 LOADMOD=/etc/modules
 
 if [ -e $CONFIG ] && grep -q "^device_tree=$" $CONFIG; then
-  DEVICE_TREE=false
-fi
-
-if $DEVICE_TREE; then
-  if [ -e $CONFIG ] && grep -q "^dtoverlay=hifiberry-dac$" $CONFIG; then
-    echo "dtoverlay already active"
-  else
-    echo "dtoverlay=hifiberry-dac" | tee -a $CONFIG
-  fi
-
-  if [ -e $CONFIG ] && grep -q "^dtoverlay=i2s-mmap$" $CONFIG; then
-    echo "i2s mmap dtoverlay already active"
-  else
-    echo "dtoverlay=i2s-mmap" | tee -a $CONFIG
-  fi
-
-  if [ -e $BLACKLIST ]; then
-    sed -i -e "s|^blacklist[[:space:]]*i2c-bcm2708.*|#blacklist i2c-bcm2708|" \
-           -e "s|^blacklist[[:space:]]*snd-soc-pcm512x.*|#blacklist snd-soc-pcm512x|" \
-           -e "s|^blacklist[[:space:]]*snd-soc-wm8804.*|#blacklist snd-soc-wm8804|" $BLACKLIST &> /dev/null
-  fi
-else
   echo "No Device Tree Detected, not supported"
   exit 1
+fi
+
+if [ -e $CONFIG ] && grep -q "^dtoverlay=hifiberry-dac$" $CONFIG; then
+  echo "dtoverlay already active"
+else
+  echo "dtoverlay=hifiberry-dac" | tee -a $CONFIG
+fi
+
+if [ -e $CONFIG ] && grep -q "^dtoverlay=i2s-mmap$" $CONFIG; then
+  echo "i2s mmap dtoverlay already active"
+else
+  echo "dtoverlay=i2s-mmap" | tee -a $CONFIG
 fi
 
 if [ -e $CONFIG ] && grep -q -E "^dtparam=audio=on$" $CONFIG; then

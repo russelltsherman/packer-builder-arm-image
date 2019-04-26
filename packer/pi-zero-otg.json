@@ -37,11 +37,7 @@
     },
     {
       "type": "shell",
-      "script": "/vagrant/scripts/packages.sh"
-    },
-    {
-      "type": "shell",
-      "script": "/vagrant/scripts/docker.sh"
+      "script": "/vagrant/scripts/git.sh"
     }
   ]
 }
