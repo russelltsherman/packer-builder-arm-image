@@ -50,12 +50,13 @@ This builder uses the following uses this kernel feature:
 
 ### Operation
 
-This provisioner allows you to run packer provisioners on your ARM image locally. It does so by mounting the image on to the local file system, and then using `chroot` combined with `binfmt_misc` to the provisioners in a simulated ARM environment.
+This provisioner allows you to run packer provisioners on your ARM image locally.
+It does so by mounting the image on to the local file system, and then using `chroot` combined with `binfmt_misc` to the provisioners in a simulated ARM environment.
 
 ## Configuration
 
-To use, you need to provide an existing image that we will then modify. We re-use packer's support
-for downloading ISOs (though the image should not be an ISO file).
+To use, you need to provide an existing image that we will then modify.
+We re-use packer's support for downloading ISOs (though the image should not be an ISO file).
 Supporting also zipped images (enabling you downloading official raspbian images directly).
 
 See [example.json](example.json) and [builder.go](pkg/builder/builder.go) for details.
@@ -64,7 +65,8 @@ See [example.json](example.json) and [builder.go](pkg/builder/builder.go) for de
 
 ### Building
 
-As this tool performs low-level OS manipulations - consider using a VM to run this code for isolation. While this is highly recommended, it is not mandatory.
+As this tool performs low-level OS manipulations - consider using a VM to run this code for isolation.
+While this is highly recommended, it is not mandatory.
 
 This project uses [go modules](https://github.com/golang/go/wiki/Modules) for dependencies introduced in Go 1.11.
 To build:
@@ -116,15 +118,6 @@ It will auto-detect most things and guides you with questions.
 (see full examples in contrib folder)
 Add these provisioners to:
 
-### Enable ssh
-
-```json
-{
-  "type": "shell",
-  "inline": ["touch /boot/ssh"]
-}
-```
-
 ### Set WiFi password
 
 set the user variables name `wifi_name` and `wifi_password`. then:
@@ -141,63 +134,12 @@ set the user variables name `wifi_name` and `wifi_password`. then:
     }
 ```
 
-### Add ssh key to authorized keys, enable ssh, disable password login.
-
-This example locks down the image to only use your
-current ssh key. Disabling password login makes it extra secure for networked environments. Note:
-this example requires you to run the plugin without a VM, as it copies your local ssh key.
-
-```json
-{
-  "variables": {
-    "ssh_key_src": "{{env `HOME`}}/.ssh/id_rsa.pub",
-    "image_home_dir": "/home/pi"
-  },
-  "builders": [
-    {
-    "type": "arm-image",
-    "iso_url" : "https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2017-12-01/2017-11-29-raspbian-stretch-lite.zip",
-    "iso_checksum_type":"sha256",
-    "iso_checksum":"e942b70072f2e83c446b9de6f202eb8f9692c06e7d92c343361340cc016e0c9f",
-    }
-  ],
-  "provisioners": [
-    {
-      "type": "shell",
-      "inline": [
-        "mkdir {{user `image_home_dir`}}/.ssh"
-      ]
-    },
-    {
-      "type": "file",
-      "source": "{{user `ssh_key_src`}}",
-      "destination": "{{user `image_home_dir`}}/.ssh/authorized_keys"
-    },
-    {
-      "type": "shell",
-      "inline": [
-        "touch /boot/ssh"
-      ]
-    },
-    {
-      "type": "shell",
-      "inline": [
-        "sed '/PasswordAuthentication/d' -i /etc/ssh/ssh_config",
-        "echo  >> /etc/ssh/ssh_config",
-        "echo 'PasswordAuthentication no' >> /etc/ssh/ssh_config"
-      ]
-    }
-  ]
-}
-```
-
 ### A complete example
 
 See everything included in here: [packer/pi-secure-wifi-ssh.json](packer/pi-secure-wifi-ssh.json). Build like so:
 
 ```sh
-sudo packer build  -var wifi_name=SSID -var wifi_password=PASSWORD contpackerrib/pi-secure-wifi-ssh.json
-# or  if running from vagrant ssh:
+vagrant up && vagrant ssh
 sudo packer build  -var wifi_name=SSID -var wifi_password=PASSWORD /vagrant/packer/pi-secure-wifi-ssh.json
 ```
 
