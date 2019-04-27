@@ -12,5 +12,7 @@ github_clone() {
 
 apt-get install -qy wiringpi
 
+github_clone rogpeppe rog-go
+github_clone russelltsherman rpi
 github_clone russelltsherman blinkt_go
 github_clone russelltsherman blinkt_go_examples
