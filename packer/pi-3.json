@@ -1,7 +1,7 @@
 {
   "variables": {
     "wifi_name": "",
-    "wifi_password": "",
+    "wifi_password": ""
   },
   "builders": [{
     "type": "arm-image",
