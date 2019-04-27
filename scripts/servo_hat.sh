@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CONFIG=/boot/config.txt
 LOADMOD=/etc/modules

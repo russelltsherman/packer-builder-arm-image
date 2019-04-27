@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # @script          provision.sh
 # @description     provisioning script that builds environment for
