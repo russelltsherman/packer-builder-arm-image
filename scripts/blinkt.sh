@@ -10,9 +10,12 @@ github_clone() {
   git clone "https://$provider/$user/$repo" "$GOPATH/src/$provider/$user/$repo"
 }
 
-apt-get install -qy wiringpi
+github_clone russelltsherman gpio
+github_clone russelltsherman blinkt
+github_clone russelltsherman blinkt_examples
 
-github_clone rogpeppe rog-go
-github_clone russelltsherman rpi
-github_clone russelltsherman blinkt_go
-github_clone russelltsherman blinkt_go_examples
+chown -R pi:pi "$GOPATH/src/"
+
+# fix permissions issue with userspace control of gpio
+chgrp -R gpio /sys/class/gpio
+chmod -R g+rw /sys/class/gpio
