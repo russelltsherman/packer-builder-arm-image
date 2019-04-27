@@ -23,9 +23,8 @@
     "type": "shell",
     "script": "/vagrant/scripts/enable-ssh.sh"
   }, {
-    "type": "file",
-    "source": "{{user `home`}}/.ssh/id_rsa.pub",
-    "destination": "/home/pi/.ssh/authorized_keys"
+    "type": "shell",
+    "script": "/vagrant/scripts/authorized_keys.sh"
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/cloud-init.sh"
