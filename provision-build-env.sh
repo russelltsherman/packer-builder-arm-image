@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2016
 #
 # @script          provision.sh
 # @description     provisioning script that builds environment for
@@ -48,7 +49,7 @@ go get -u github.com/golang/dep/cmd/dep
 [[ -e /tmp/packer ]] && rm /tmp/packer
 wget https://releases.hashicorp.com/packer/1.3.5/packer_1.3.5_linux_amd64.zip \
     -q -O /tmp/packer_1.3.5_linux_amd64.zip
-pushd /tmp
+pushd /tmp || exit
 unzip -u packer_1.3.5_linux_amd64.zip
 sudo cp packer /usr/local/bin
-popd
+popd || exit

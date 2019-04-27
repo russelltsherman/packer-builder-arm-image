@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # @script          provision.sh
 # @description     provisioning script that builds environment for
@@ -10,8 +10,8 @@ set -x
 # Set to false to disable auto building
 
 # Now ready to build the plugin
-mkdir -p $GOPATH/src/github.com/russelltsherman/
-pushd $GOPATH/src/github.com/russelltsherman/
+mkdir -p "$GOPATH/src/github.com/russelltsherman/"
+pushd "$GOPATH/src/github.com/russelltsherman/" || exit
 # clean up potential residual files from previous builds
 rm -rf packer-builder-arm-image
 if [[ -z "${GIT_CLONE_URL}" ]]; then {
@@ -19,7 +19,7 @@ if [[ -z "${GIT_CLONE_URL}" ]]; then {
 } else {
     git clone ${GIT_CLONE_URL} packer-builder-arm-image
 }; fi
-pushd ./packer-builder-arm-image
+pushd ./packer-builder-arm-image || exit
 go build
 
 # Check if plugin built and copy into place
