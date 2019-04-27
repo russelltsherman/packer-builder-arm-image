@@ -1,0 +1,13 @@
+{
+  "variables": {},
+  "builders": [{
+    "type": "arm-image",
+    "iso_url": "https://images.offensive-security.com/arm-images/kali-linux-2019.1-rpi0w-nexmon.img.xz",
+    "iso_checksum_type": "sha256",
+    "iso_checksum": "90449eb2bf06be075ae2e0504425a33297643e8a4f4964ee853f22a49f3f57d1"
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "inline": ["apt-get update && apt-get install -y golang"]
+  }]
+}
