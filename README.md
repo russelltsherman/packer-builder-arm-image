@@ -216,3 +216,19 @@ vagrant up && vagrant ssh
 sudo packer build /vagrant/packer/pi-zero-speakerbonnet.json
 rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-speakerbonnet.img
 ```
+
+### create image with support with otg and adafruit servo hat
+
+```sh
+vagrant up && vagrant ssh
+sudo packer build /vagrant/packer/pi-zero-servo.json
+rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-servo.img
+```
+
+### create image with support with otg and pimoroni blinkt
+
+```sh
+vagrant up && vagrant ssh
+sudo packer build /vagrant/packer/pi-zero-blinkt.json
+rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-blinkt.img
+```
