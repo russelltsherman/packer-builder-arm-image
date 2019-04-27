@@ -1,20 +1,16 @@
 #!/usr/bin/env bash
 
+export GOPATH=/home/pi/
+
+github_clone() {
+  provider="github.com"
+  user="$1"
+  repo="$2"
+  mkdir -p "$GOPATH/src/$provider/$user"
+  git clone "https://$provider/$user/$repo" "$GOPATH/src/$provider/$user/$repo"
+}
 
 apt-get install -qy wiringpi
 
-export GOPATH=/home/pi/go/
-
-mkdir -p $GOPATH/src/github.com/russelltsherman/
-
-cd $GOPATH/src/github.com/russelltsherman/ || exit
-
-git clone https://github.com/russelltsherman/blinkt_go
-
-git clone https://github.com/russelltsherman/blinkt_go_examples
-
-cd blinkt_go || exit
-
-go get
-
-go build
+github_clone russelltsherman blinkt_go
+github_clone russelltsherman blinkt_go_examples
