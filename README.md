@@ -14,12 +14,12 @@ With this plugin, you can:
 Tested for Raspbian images on built on Ubuntu 17.10. It is based partly on the chroot AWS
 provisioner, though the code was copied to prevent AWS dependencies.
 
-## How it works?
+## How it works
 
 The plugin runs the provisioners in a chroot environment.  Binary execution is done using
 `qemu-arm-static`, via `binfmt_misc`.
 
-### Dependencies:
+### Dependencies
 
 This builder uses the following shell commands:
 

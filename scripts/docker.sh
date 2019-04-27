@@ -19,18 +19,12 @@ dphys-swapfile uninstall
 update-rc.d dphys-swapfile remove
 
 ## k8s
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
 
 ## Update after said changes so we can pull the archive keyring
 apt-get update -qq
 apt-get install -qy kubeadm
 
 ## Enable cgroups
-
-# echo Adding " cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory" to /boot/cmdline.txt
-# sudo cp /boot/cmdline.txt /boot/cmdline_backup.txt
-# orig="$(head -n1 /boot/cmdline.txt) cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory"
-# echo $orig | sudo tee /boot/cmdline.txt
-
 echo "dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=PARTUUID=c1dc39e5-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory modules-load=dwc2,g_ether quiet init=/usr/lib/raspi-config/init_resize.sh" | tee /boot/cmdline.txt

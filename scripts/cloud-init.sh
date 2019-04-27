@@ -2,12 +2,12 @@
 set -x
 
 # Get cloud-init
-sudo apt-get update
-sudo debconf-set-selections -v <<<"cloud-init cloud-init/datasources multiselect NoCloud, None" 2>/dev/null
-sudo apt-get install -y cloud-init
+apt-get update
+debconf-set-selections -v <<<"cloud-init cloud-init/datasources multiselect NoCloud, None" 2>/dev/null
+apt-get install -y cloud-init
 
 # Prepare datasource
-sudo tee /etc/cloud/cloud.cfg <<'YAML'
+tee /etc/cloud/cloud.cfg <<'YAML'
 # The top level settings are used as module
 # and system configuration.
 
@@ -116,12 +116,12 @@ system_info:
 YAML
 
 # Create meta-data
-sudo tee /boot/meta-data <<'YAML'
+tee /boot/meta-data <<'YAML'
 instance-id: iid-raspberrypi-nocloud
 YAML
 
 # Create user-data
-sudo tee /boot/user-data <<'YAML'
+tee /boot/user-data <<'YAML'
 #cloud-config
 
 users:

@@ -2,4 +2,4 @@
 set -x
 
 # Install additional packages
-sudo apt-get install -y git
+apt-get install -y git

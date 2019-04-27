@@ -5,7 +5,7 @@ arch="linux-armv6l"
 release="go${version}.${arch}.tar.gz"
 
 wget https://dl.google.com/go/$release
-sudo tar -xvf $release -C /usr/local/
+tar -xvf $release -C /usr/local/
 rm $release
 
 ln -s /usr/local/go/bin/go /usr/local/bin/go
