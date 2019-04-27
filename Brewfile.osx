@@ -1,0 +1,7 @@
+
+# https://www.vagrantup.com/
+cask "vagrant"
+
+# virtualbox to handle virtual machines
+cask "virtualbox"
+cask "virtualbox-extension-pack"
