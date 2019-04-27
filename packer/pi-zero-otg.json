@@ -8,37 +8,32 @@
     "last_partition_extra_size": 1073741824
   }],
   "provisioners": [{
-      "type": "shell",
-      "script": "/vagrant/scripts/locale.sh"
-    },
-    {
-      "type": "shell",
-      "script": "/vagrant/scripts/sources.sh"
-    },
-    {
-      "type": "shell",
-      "script": "/vagrant/scripts/gpu_mem16.sh"
-    },
-    {
-      "type": "shell",
-      "script": "/vagrant/scripts/enable-otg.sh"
-    },
-    {
-      "type": "shell",
-      "script": "/vagrant/scripts/enable-ssh.sh"
-    },
-    {
-      "type": "file",
-      "source": "{{user `home`}}/.ssh/id_rsa.pub",
-      "destination": "/home/pi/.ssh/authorized_keys"
-    },
-    {
-      "type": "shell",
-      "script": "/vagrant/scripts/cloud-init.sh"
-    },
-    {
-      "type": "shell",
-      "script": "/vagrant/scripts/git.sh"
-    }
-  ]
+    "type": "shell",
+    "script": "/vagrant/scripts/locale.sh"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/sources.sh"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/gpu_mem16.sh"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/enable-otg.sh"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/enable-ssh.sh"
+  }, {
+    "type": "file",
+    "source": "{{user `home`}}/.ssh/id_rsa.pub",
+    "destination": "/home/pi/.ssh/authorized_keys"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/cloud-init.sh"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/git.sh"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/golang.sh"
+  }]
 }
