@@ -151,6 +151,14 @@ sudo packer build /vagrant/packer/pi-zero-otg.json
 rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-otg.img
 ```
 
+### create image with support with otg and docker
+
+```sh
+vagrant up && vagrant ssh
+sudo packer build /vagrant/packer/pi-zero-docker.json
+rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-docker.img
+```
+
 ### create image with support with otg and adafruit speakerbonnet
 
 ```sh
