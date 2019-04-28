@@ -174,3 +174,13 @@ vagrant up && vagrant ssh
 sudo packer build /vagrant/packer/pi-zero-blinkt.json
 rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-blinkt.img
 ```
+
+### cleanup after building
+
+the vagrant disk will fill quickly if building multiple images.
+to clean between generations.
+
+```sh
+sudo rm -rf /home/vagrant/output-arm-image/
+sudo rm -rf /home/vagrant/work/src/github.com/
+```
