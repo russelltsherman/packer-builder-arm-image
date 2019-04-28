@@ -12,6 +12,12 @@
     "script": "/vagrant/scripts/locale.sh"
   }, {
     "type": "shell",
+    "script": "/vagrant/scripts/git.sh"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/blinkt.sh"
+  }, {
+    "type": "shell",
     "script": "/vagrant/scripts/sources.sh"
   }, {
     "type": "shell",
@@ -30,12 +36,6 @@
     "script": "/vagrant/scripts/cloud-init.sh"
   }, {
     "type": "shell",
-    "script": "/vagrant/scripts/git.sh"
-  }, {
-    "type": "shell",
     "script": "/vagrant/scripts/golang.sh"
-  }, {
-    "type": "shell",
-    "script": "/vagrant/scripts/blinkt.sh"
   }]
 }
