@@ -7,7 +7,7 @@ github_clone() {
   user="$1"
   repo="$2"
   mkdir -p "$GOPATH/src/$provider/$user"
-  git clone "https://$provider/$user/$repo" "$GOPATH/src/$provider/$user/$repo"
+  git clone "https://$provider/$user/$repo.git" "$GOPATH/src/$provider/$user/$repo"
 }
 
 github_clone russelltsherman gpio
