@@ -1,5 +1,4 @@
 #!/bin/bash -e
-set -x
 
 # Get cloud-init
 apt-get update

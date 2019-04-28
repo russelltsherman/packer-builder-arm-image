@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -x
 
 echo "
 # set gpu memory split to minimum value

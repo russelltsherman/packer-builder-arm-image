@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -x
 
 # Set locale to en_US.UTF-8
 cp /etc/locale.gen /etc/locale.gen.dist

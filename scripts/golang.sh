@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Install additional packages
+apt-get install -y git
+
 version="1.12.4"
 arch="linux-armv6l"
 release="go${version}.${arch}.tar.gz"

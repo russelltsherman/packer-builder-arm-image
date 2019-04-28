@@ -1,8 +1,27 @@
 #!/usr/bin/env bash
-set -x
 
-echo "
-#enable OTG
-dtoverlay=dwc2" | tee -a /boot/config.txt
+CONFIG=/boot/config.txt
+CMDLINE=/boot/cmdline.txt
 
-echo "dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=PARTUUID=c1dc39e5-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether quiet init=/usr/lib/raspi-config/init_resize.sh" | tee /boot/cmdline.txt
+# Enable OTG in config
+if [ -e $CONFIG ] && grep -q "dtoverlay=dwc2" $CONFIG; then
+  echo "dtoverlay=dwc2 present in $CONFIG"
+
+  if [ -e $CONFIG ] && grep -q "^#dtoverlay=dwc2$" $CONFIG; then
+    echo "uncommenting"
+    sed -i -e "s|#dtoverlay=dwc2|dtoverlay=dwc2|" $CONFIG
+  fi
+else
+  echo "dtoverlay=dwc2 added to $CONFIG"
+  echo "
+  #enable OTG
+  dtoverlay=dwc2" | tee -a $CONFIG
+fi
+
+# add cmdline parameter for OTG
+if [ -e $CMDLINE ] && grep -q "modules-load=dwc2,g_ether" $CMDLINE; then
+  echo "modules-load=dwc2,g_ether present in $CMDLINE"
+else
+  echo "modules-load=dwc2,g_ether added to $CMDLINE"
+  sed -i -e "s|rootwait|rootwait modules-load=dwc2,g_ether|" $CMDLINE
+fi

@@ -2,6 +2,9 @@
 
 export GOPATH=/home/pi
 
+# Install additional packages
+apt-get install -y git
+
 github_clone() {
   provider="github.com"
   user="$1"
