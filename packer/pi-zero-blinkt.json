@@ -21,10 +21,10 @@
     "script": "/vagrant/scripts/set_gpu_mem16.sh"
   }, {
     "type": "shell",
-    "script": "/vagrant/scripts/enable-otg.sh"
+    "script": "/vagrant/scripts/enable_otg.sh"
   }, {
     "type": "shell",
-    "script": "/vagrant/scripts/enable-ssh.sh"
+    "script": "/vagrant/scripts/enable_ssh.sh"
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/authorized_keys.sh"

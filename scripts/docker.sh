@@ -20,9 +20,9 @@ echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sourc
 apt-get update -qq && apt-get install -qy kubeadm
 
 # add cmdline parameter for cgroups
-if [ -e $CMDLINE ] && grep -q "modules-load=dwc2,g_ether" $CMDLINE; then
-  echo "modules-load=dwc2,g_ether present in $CMDLINE"
+if [ -e $CMDLINE ] && grep -q "cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory" $CMDLINE; then
+  echo "cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory present in $CMDLINE"
 else
-  echo "modules-load=dwc2,g_ether added to $CMDLINE"
+  echo "cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory added to $CMDLINE"
   sed -i -e "s|rootwait|rootwait cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory|" $CMDLINE
 fi

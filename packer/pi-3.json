@@ -18,7 +18,7 @@
     "script": "/vagrant/scripts/enable_sources.sh"
   }, {
     "type": "shell",
-    "script": "/vagrant/scripts/enable-ssh.sh"
+    "script": "/vagrant/scripts/enable_ssh.sh"
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/authorized_keys.sh"
