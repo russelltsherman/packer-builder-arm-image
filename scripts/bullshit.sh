@@ -17,8 +17,7 @@ github_clone russelltsherman new-age-bullshit
 
 chown -R pi:pi "$GOPATH/src/"
 
-# Festival Text to Speech
-apt-get install -y festival
+apt-get install -y espeak festival libttspico-utils
 
 echo "writing /etc/systemd/system/bullshit.service"
 cat > /etc/systemd/system/bullshit.service << 'EOL'
