@@ -183,6 +183,14 @@ sudo packer build /vagrant/packer/pi-zero-blinkt.json
 rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-blinkt.img
 ```
 
+### create image with support with otg and bullshit generator
+
+```sh
+vagrant up && vagrant ssh
+sudo packer build /vagrant/packer/pi-zero-bullshit.json
+rsync --progress --archive /home/vagrant/output-arm-image/image /vagrant/pi-zero-bullshit.img
+```
+
 ### cleanup after building
 
 the vagrant disk will fill quickly if building multiple images.
