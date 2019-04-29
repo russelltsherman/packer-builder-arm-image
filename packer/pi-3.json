@@ -12,19 +12,19 @@
   }],
   "provisioners": [{
     "type": "shell",
-    "script": "/vagrant/scripts/set_locale.sh"
+    "script": "/vagrant/scripts/enable_sources.sh"
   }, {
     "type": "shell",
-    "script": "/vagrant/scripts/enable_sources.sh"
+    "script": "/vagrant/scripts/enable_cloud-init.sh"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/set_locale.sh"
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/enable_ssh.sh"
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/authorized_keys.sh"
-  }, {
-    "type": "shell",
-    "script": "/vagrant/scripts/enable_cloud-init.sh"
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/disable_swap.sh"

@@ -9,10 +9,13 @@
   }],
   "provisioners": [{
     "type": "shell",
-    "script": "/vagrant/scripts/set_locale.sh"
+    "script": "/vagrant/scripts/enable_sources.sh"
   }, {
     "type": "shell",
-    "script": "/vagrant/scripts/enable_sources.sh"
+    "script": "/vagrant/scripts/enable_cloud-init.sh"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/set_locale.sh"
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/set_gpu_mem16.sh"

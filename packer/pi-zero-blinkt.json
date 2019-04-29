@@ -9,13 +9,16 @@
   }],
   "provisioners": [{
     "type": "shell",
+    "script": "/vagrant/scripts/enable_sources.sh"
+  }, {
+    "type": "shell",
+    "script": "/vagrant/scripts/enable_cloud-init.sh"
+  }, {
+    "type": "shell",
     "script": "/vagrant/scripts/set_locale.sh"
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/blinkt.sh"
-  }, {
-    "type": "shell",
-    "script": "/vagrant/scripts/enable_sources.sh"
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/set_gpu_mem16.sh"
@@ -28,9 +31,6 @@
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/authorized_keys.sh"
-  }, {
-    "type": "shell",
-    "script": "/vagrant/scripts/enable_cloud-init.sh"
   }, {
     "type": "shell",
     "script": "/vagrant/scripts/golang.sh"
