@@ -33,5 +33,18 @@ apt-get install -y festival
 
 # echo “Just what do you think you're doing, Dave?” | festival --tts
 
+echo "writing /etc/systemd/system/bullshit.service"
+cat > /etc/systemd/system/bullshit.service << 'EOL'
+[Unit]
+Description=New Age Bullshit Generator
 
+[Service]
+Environment=GOPATH=/home/pi
+Environment=GOCACHE=/home/pi/.cache/go-build
+ExecStart=/usr/local/bin/go run /home/pi/src/github.com/russelltsherman/new-age-bullshit/app.go
 
+[Install]
+WantedBy=multi-user.target
+EOL
+
+systemctl enable bullshit
