@@ -17,21 +17,8 @@ github_clone russelltsherman new-age-bullshit
 
 chown -R pi:pi "$GOPATH/src/"
 
-# Pico Text to Speech
-apt-get install -y libttspico-utils
-
-# pico2wave -w lookdave.wav "Look Dave, I can see you're really upset about this." && aplay lookdave.wav
-
-# Espeak Text to Speech
-apt-get install -y espeak
-
-# Test Espeak with: English female voice, emphasis on capitals (-k), speaking slowly (-s) using direct text:-
-# espeak -ven+f3 -k5 -s150 "I've just picked up a fault in the AE35 unit"
-
 # Festival Text to Speech
 apt-get install -y festival
-
-# echo “Just what do you think you're doing, Dave?” | festival --tts
 
 echo "writing /etc/systemd/system/bullshit.service"
 cat > /etc/systemd/system/bullshit.service << 'EOL'
