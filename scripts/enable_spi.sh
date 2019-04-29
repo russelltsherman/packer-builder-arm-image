@@ -17,5 +17,5 @@ if [ -e $CONFIG ] && grep -q "dtparam=spi=on" $CONFIG; then
   fi
 else
   echo "dtparam=spi=on added to $CONFIG"
-  printf "\n#enable spi\ndtparam=spi=on" | tee -a $CONFIG
+  printf "\n#enable spi\ndtparam=spi=on\n" | tee -a $CONFIG
 fi

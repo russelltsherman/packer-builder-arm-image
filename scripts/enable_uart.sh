@@ -12,5 +12,5 @@ if [ -e $CONFIG ] && grep -q "enable_uart=1" $CONFIG; then
   fi
 else
   echo "enable_uart=1 added to $CONFIG"
-  printf "\n#enable serial console\nenable_uart=1" | tee -a $CONFIG
+  printf "\n#enable serial console\nenable_uart=1\n" | tee -a $CONFIG
 fi

@@ -12,13 +12,13 @@ fi
 if [ -e $CONFIG ] && grep -q "^dtoverlay=hifiberry-dac$" $CONFIG; then
   echo "dtoverlay already active"
 else
-  printf "\n# enable hifiberry-dac\ndtoverlay=hifiberry-dac" | tee -a $CONFIG
+  printf "\n# enable hifiberry-dac\ndtoverlay=hifiberry-dac\n" | tee -a $CONFIG
 fi
 
 if [ -e $CONFIG ] && grep -q "^dtoverlay=i2s-mmap$" $CONFIG; then
   echo "i2s mmap dtoverlay already active"
 else
-  printf "\n# enable is2-mmap\ndtoverlay=i2s-mmap" | tee -a $CONFIG
+  printf "\n# enable is2-mmap\ndtoverlay=i2s-mmap\n" | tee -a $CONFIG
 fi
 
 if [ -e $CONFIG ] && grep -q -E "^dtparam=audio=on$" $CONFIG; then

@@ -18,7 +18,7 @@ if [ -e $CONFIG ] && grep -q "dtparam=i2c_arm=on" $CONFIG; then
   fi
 else
   echo "dtparam=i2c_arm=on added to $CONFIG"
-  printf "\n#enable i2c\ndtparam=i2c_arm=on" | tee -a $CONFIG
+  printf "\n#enable i2c\ndtparam=i2c_arm=on\n" | tee -a $CONFIG
 fi
 
 if [ -e $LOADMOD ] && grep -q "i2c-dev" $LOADMOD; then

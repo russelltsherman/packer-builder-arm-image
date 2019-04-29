@@ -13,7 +13,7 @@ if [ -e $CONFIG ] && grep -q "dtoverlay=dwc2" $CONFIG; then
   fi
 else
   echo "dtoverlay=dwc2 added to $CONFIG"
-  printf "\n#enable OTG\ndtoverlay=dwc2" | tee -a $CONFIG
+  printf "\n#enable OTG\ndtoverlay=dwc2\n" | tee -a $CONFIG
 fi
 
 # add cmdline parameter for OTG
