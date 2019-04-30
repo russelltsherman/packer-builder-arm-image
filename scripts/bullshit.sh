@@ -14,6 +14,7 @@ github_clone() {
 }
 
 github_clone russelltsherman new-age-bullshit
+# GO111MODULE=on go mod tidy
 
 chown -R pi:pi "$GOPATH/src/"
 
@@ -27,7 +28,7 @@ Description=New Age Bullshit Generator
 [Service]
 Environment=GOPATH=/home/pi
 Environment=GOCACHE=/home/pi/.cache/go-build
-ExecStart=/usr/local/bin/go run /home/pi/src/github.com/russelltsherman/new-age-bullshit/app.go
+ExecStart=/usr/local/bin/go run /home/pi/src/github.com/russelltsherman/new-age-bullshit/app.go pico
 
 [Install]
 WantedBy=multi-user.target
