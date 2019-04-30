@@ -6,5 +6,6 @@ dphys-swapfile uninstall
 systemctl disable dphys-swapfile
 sudo update-rc.d dphys-swapfile remove
 
-# direct /var/log to in memory file system to prevent excessive writing to sd card
-echo "none            /var/log            tmpfs   size=1M,noatime             0   0" | tee -a /etc/fstab
+# /var/log and /tmp to in memory file system to prevent excessive sd write
+echo "tmpfs    /var/log    tmpfs   size=10M,noatime     0   0" | tee -a /etc/fstab
+echo "tmpfs    /tmp        tmpfs   size=100M,noatime    0   0" | tee -a /etc/fstab

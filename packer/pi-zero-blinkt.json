@@ -18,6 +18,9 @@
     "script": "/vagrant/scripts/set_locale.sh"
   }, {
     "type": "shell",
+    "script": "/vagrant/scripts/disable_swap.sh"
+  }, {
+    "type": "shell",
     "script": "/vagrant/scripts/blinkt.sh"
   }, {
     "type": "shell",
