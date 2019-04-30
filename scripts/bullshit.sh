@@ -28,6 +28,7 @@ Description=New Age Bullshit Generator
 [Service]
 Environment=GOPATH=/home/pi
 Environment=GOCACHE=/home/pi/.cache/go-build
+ExecStartPre=-/bin/mkdir -p /tmp/bullshit
 ExecStart=/usr/local/bin/go run /home/pi/src/github.com/russelltsherman/new-age-bullshit/app.go pico
 
 [Install]
