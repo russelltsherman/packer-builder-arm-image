@@ -1,3 +1,6 @@
+# ignore build harness
+*build-harness
+
 .vagrant/
 *.img
 packer-builder-arm-image
